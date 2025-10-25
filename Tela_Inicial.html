@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela Inicial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: 
+        linear-gradient(135deg, rgba(245,171,208,0.85), rgba(201,9,107,0.85)),
+        url('coração_fundo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .menu {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 300px;
+    }
+
+    .menu h1 {
+      margin-bottom: 20px;
+      color: #c9096b;
+    }
+
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      text-decoration: none;
+      background: #ff5daf;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      background: #c9096b;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <h1>Bem-vindo!</h1>
+    <a href="login.html">Login</a>
+    <a href="cadastro.html">Cadastro</a>
+    <a href="recuperar.html">Recuperar Senha</a>
+    <a href="sobre.html">Sobre</a>
+  </div>
+</body>
+</html>

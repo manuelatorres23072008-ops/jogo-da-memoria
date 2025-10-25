@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: 
+        linear-gradient(135deg, rgba(245,171,208,0.85), rgba(201,9,107,0.85)),
+        url('coração_fundo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 320px;
+      position: relative;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #c9096b;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #ff5daf;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #c9096b;
+      transform: scale(1.05);
+    }
+
+    .erro {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* botão em formato de coração */
+    .botao-coracao {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      background: #ff5daf;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .botao-coracao:hover {
+      background: #c9096b;
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <a href="Tela_Inicial.html" class="botao-coracao">❤</a>
+
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Digite seu e-mail">
+    <input type="password" id="senha" placeholder="Digite sua senha">
+    <button onclick="fazerLogin()">Entrar</button>
+    <p id="mensagem" class="erro"></p>
+  </div>
+
+  <script>
+    function fazerLogin() {
+      let email = document.getElementById("email").value.trim();
+      let senha = document.getElementById("senha").value.trim();
+      let mensagem = document.getElementById("mensagem");
+
+      if (email === "" || senha === "") {
+        mensagem.textContent = "Preencha todos os campos!";
+        return;
+      }
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+      let usuarioValido = usuarios.find(u => u.email === email && u.senha === senha);
+
+      if (usuarioValido) {
+        mensagem.style.color = "green";
+        mensagem.textContent = "Login bem-sucedido! Redirecionando...";
+        setTimeout(() => {
+          window.location.href = "Jogo_Tela.html";
+        }, 1500);
+      } else {
+        mensagem.style.color = "red";
+        mensagem.textContent = "E-mail ou senha incorretos!";
+      }
+    }
+  </script>
+</body>
+</html>
